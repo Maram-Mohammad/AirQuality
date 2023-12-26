@@ -1,0 +1,8 @@
+const path = require("path");
+
+module.exports = {
+    'config': path.resolve('src','shared' ,'config', 'config.js'),
+    'models-path': path.resolve('src','shared', 'dbSqualize','models'),
+    'migrations-path': path.resolve('src','shared','dbSqualize','migrations'),
+    'seeders-path': path.resolve('src','shared' ,'seeders'),
+}

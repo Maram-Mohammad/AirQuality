@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: user
+      MONGO_INITDB_ROOT_PASSWORD: pass
+    volumes:
+      - ./data/db:/data/db
+
+
+  # db:
+  #   image: postgres:11.4-alpine
+  #   #restart: always
+  #   environment:
+  #     POSTGRES_USER: slickuser
+  #     POSTGRES_PASSWORD: slickpass
+  #     POSTGRES_DB: air_quality_db
+  #   ports:
+  #     - 5432:5432
+      
+  # adminer:
+  #   image: adminer
+  #   #restart: always
+  #   ports:
+  #     - 8080:8080
+ 
