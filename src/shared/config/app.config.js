@@ -3,7 +3,7 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 require('dotenv-flow').config();
 
-const configs = {
+export default configs = {
   STAGE: process.env.STAGE,
 
   LOGGER_LEVEL: process.env.LOGGER_LEVEL,
@@ -13,4 +13,3 @@ const configs = {
 
 
 };
-module.exports = configs;

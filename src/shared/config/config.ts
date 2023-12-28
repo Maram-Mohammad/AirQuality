@@ -2,7 +2,6 @@
 require('dotenv').config();
 
 const { DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME, DB_DIALECT, DB_SSL } = process.env;
-const { MONGO_URL } = process.env;
 
 const sqlizeConfig = {
   username: DB_USERNAME,
@@ -10,7 +9,7 @@ const sqlizeConfig = {
   database: DB_NAME,
   host: DB_HOST,
   dialect: DB_DIALECT,
-  ssl: (DB_SSL == true),
+  ssl: (DB_SSL == 'true'),
   dialectOptions: {
     'ssl': (DB_SSL),
   }
@@ -23,11 +22,11 @@ const mongoConfig = {
   dbName: DB_NAME,
   autoCreate: true,
   autoIndex: false,
-  ssl: (DB_SSL == true),
+  ssl: (DB_SSL == 'true'),
 };
 
 // sequelize-cli only understands module.exports
-module.exports = {
+export default {
   development: sqlizeConfig,
   test: sqlizeConfig,
   production: sqlizeConfig,

@@ -1,11 +1,12 @@
-import { AirQuality } from './airQuality';
-import { IRepository } from '../../../../../shared/IRepository';
-import { airQualityMongo } from './airQualityMongo-server';
+import { AirQuality } from '../Models/airQuality';
+import { IRepository } from '../../domain/interfaces/repositories/IRepository';
+import { airQualityMongo } from '../db/airQualityMongo-server';
 import { Model } from 'mongoose';
 
 export class AirQualityRepository implements IRepository<AirQuality> {
+  
+  //Model that created from Schema
   airQualityModel: Model<AirQuality> = airQualityMongo.getModels()['airQualityModel'];
-
 
   async getAll(): Promise<AirQuality[]> {
     return this.airQualityModel.find().exec();
@@ -31,5 +32,4 @@ export class AirQualityRepository implements IRepository<AirQuality> {
 }
 
 
-// module.exports = AirQualityRepository;
 

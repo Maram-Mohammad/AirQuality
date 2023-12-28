@@ -1,7 +1,6 @@
-// import express from 'express';
-// import { getAirQuality } from '../controllers/airQualityController';
-
-// const router = express.Router();
+import { Router } from 'express';
+import { AirQualityController } from './airQualityController';
+const router = Router();
 
 // /**
 //  * @swagger
@@ -27,20 +26,10 @@
 //  *             example:
 //  *               airQuality: 75
 //  */
-// router.get('/air-quality', getAirQuality);
-
-// export default router;
-
-// src/routes/userRoutes.ts
-
-import { Router } from 'express';
-import { AirQualityController } from './airQualityController';
-
-const router = Router();
-
 router.get('/', AirQualityController.getAll);
 router.get('/test', AirQualityController.test);
 router.get('/nearest-city-pollution', AirQualityController.getNearestCityPollution);
+router.get('/most-polluted-time', AirQualityController.getMostPollutedTime);
 router.get('/:id', AirQualityController.getById);
 router.post('/', AirQualityController.create);
 router.put('/:id', AirQualityController.update);

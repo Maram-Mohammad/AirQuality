@@ -26,31 +26,33 @@ interface Pollution {
     co:PollKeys;
 }
 
-interface Forecast extends Weather {
-    aqius: number;
-    aqicn: number;
-    tp_min: number;
-}
-interface Current{
-    weather: Weather;
-    pollution: Pollution;
-}
-interface History{
-    weather: Weather[];
-    pollution: Pollution[];
-}
-
 interface IAirQuality{
     id: string;
-    name: string;
     city: string;
     state: string;
     country: string;
     lat: number;
     lon: number;
-    forecast: Forecast[];
-    current: Current;
-    history: History;
+    weather: Weather;
+    pollution?: Pollution;
     createdAt: Date;
     updatedAt: Date;
+    // forecast: Forecast[];
+    // current: Current;
+    // history: History;
 }
+
+// interface Forecast extends Weather {
+//     aqius: number;
+//     aqicn: number;
+//     tp_min: number;
+// }
+// interface Current{
+//     weather: Weather;
+//     pollution: Pollution;
+// }
+// interface History{
+//     weather: Weather[];
+//     pollution: Pollution[];
+// }
+

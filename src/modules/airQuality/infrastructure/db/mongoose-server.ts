@@ -1,14 +1,13 @@
 import mongoose, { Connection } from 'mongoose';
-const dbConfig = require(`../config/config.js`);
+import dbConfig from '../../../../shared/config/config';
 const config = dbConfig.mongo;
 
 export default class MongoSingleton {
-
     private static instance: MongoSingleton | null = null;
     private connection: Connection;
 
     private constructor() {
-      const connectionString = config.url;
+      const connectionString: string = config?.url || '';
 
       this.connection = mongoose.createConnection(connectionString); 
       this.mongoListners();   

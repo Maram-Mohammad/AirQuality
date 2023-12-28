@@ -2,17 +2,15 @@ import mongoose, { Schema, Document, SchemaType, SchemaTypes } from 'mongoose';
 import { Connection } from 'mongoose';
 import {airQualitySchema} from './airQuality.schema';
 
-export class AirQuality extends Document {
-    id!: string;
-    name!: string;
+export class AirQuality extends Document { //implements IAirQuality{
+    // id!: string;
     city!: string;
     state!: string;
     country!: string;
     lat!: number;
     lon!: number;
-    forecast!: any[];
-    current!: any;
-    history!: any;
+    weather!: Weather;
+    pollution!: Pollution;
     readonly createdAt!: Date;
     readonly updatedAt!: Date;
 
