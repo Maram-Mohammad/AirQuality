@@ -1,12 +1,5 @@
-// src/controllers/AirQualityController.ts
-
 import { Request, Response } from 'express';
-import { AirQualityRepository } from '../infrastructure/dbModels/mongoose/airQualityRepository';
-import axios from 'axios';
-
-const AIRVISUAL_API_KEY = '45b05d0d-c3be-45a5-aced-44a72cd3ba24';
-
-const airQualityRep = new AirQualityRepository();
+import {airQualityService, airQualityRep} from "../../index";
 
 export const AirQualityController = {
     getAll: async (req: Request, res: Response): Promise<void> => {
@@ -19,44 +12,28 @@ export const AirQualityController = {
         }
     },
     getNearestCityPollution: async (req: Request, res: Response): Promise<void> => {
-        // try {
-
-        //     const { lat, lon } = req.query;
-        //     console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>",lat, lon)
-
-        //     if (!lat || !lon) {
-        //         res.status(400).json({ error: 'Latitude and longitude are required parameters.' });
-        //         return;
-        //     }
-
-        //     const apiUrl = `http://api.airvisual.com/v2/nearest_city?lat=${lat}&lon=${lon}&key=${AIRVISUAL_API_KEY}`;
-        //     const response = await axios.get(apiUrl);
-        //     // console.log(">>>>>>>>>>>>>>response>>>>>>>>>>>>>>>>>>",response)
-
-        //     const { data } = response.data;
-        //     console.log(">>>>>>>>>>>>>>response>>>>>>>>>>>>>>>>>>",response.data)
-
-        //     const formattedResponse = {
-        //         Result: {
-        //             Pollution: {
-        //                 ts: data.current.pollution.ts,
-        //                 aqius: data.current.pollution.aqius,
-        //                 mainus: data.current.pollution.mainus,
-        //                 aqicn: data.current.pollution.aqicn,
-        //                 maincn: data.current.pollution.maincn,
-        //             },
-        //         },
-        //     };
-
-        //     res.json(formattedResponse);
-        // } catch (error) {
-        //     console.error(error);
-        //     res.status(500).json({ error: 'Internal Server Error' });
-        // }
-        res.json("hi to call service");
-
+        try {
+            const { lat, lon } = req.query;
+            if (!lat || !lon) {
+                res.status(400).json({ error: 'Latitude and longitude are required parameters.' });
+                return;
+            }
+            let result = await airQualityService.getNearestCityAirQuality(Number(lat), Number(lon));
+            res.json(result);
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ error: 'Internal Server Error' });
+        }
     },
-
+    getMostPollutedTime: async (req: Request, res: Response): Promise<void> => {
+        try {
+            let result = await airQualityService.getMostPollutedTime();
+            res.json(result);
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ error: 'Internal Server Error' });
+        }
+    },
     getById: async (req: Request, res: Response): Promise<void> => {
         try {
             const { id } = req.params;
@@ -118,7 +95,6 @@ export const AirQualityController = {
         try {
             console.log("API WORKS FINE >>>>>>>>>>>>>>>>>>>>>>")
             res.json("Welcome in Test Page :D ");
-
         } catch (error) {
             console.error(error);
             res.status(500).json({ error: 'Internal Server Error' });

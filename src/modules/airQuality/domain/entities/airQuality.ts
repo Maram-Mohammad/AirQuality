@@ -1,4 +1,4 @@
-interface Weather {
+export interface Weather {
     ts: Date;
     tp: number;
     pr: number;
@@ -8,13 +8,13 @@ interface Weather {
     ic: string;
 }
 
-interface PollKeys {
+export interface PollKeys {
     conc: number;
     aqius: number;
     aqicn: number;
 }
 
-interface Pollution {
+export interface Pollution {
     ts: Date;
     aqius: number;
     mainus: string;
@@ -26,31 +26,33 @@ interface Pollution {
     co:PollKeys;
 }
 
-interface Forecast extends Weather {
-    aqius: number;
-    aqicn: number;
-    tp_min: number;
-}
-interface Current{
-    weather: Weather;
-    pollution: Pollution;
-}
-interface History{
-    weather: Weather[];
-    pollution: Pollution[];
-}
-
-interface IAirQuality{
+export interface IAirQuality{
     id: string;
-    name: string;
     city: string;
     state: string;
     country: string;
     lat: number;
     lon: number;
-    forecast: Forecast[];
-    current: Current;
-    history: History;
+    weather: Weather;
+    pollution?: Pollution;
     createdAt: Date;
     updatedAt: Date;
+    // forecast: Forecast[];
+    // current: Current;
+    // history: History;
 }
+
+// interface Forecast extends Weather {
+//     aqius: number;
+//     aqicn: number;
+//     tp_min: number;
+// }
+// interface Current{
+//     weather: Weather;
+//     pollution: Pollution;
+// }
+// interface History{
+//     weather: Weather[];
+//     pollution: Pollution[];
+// }
+

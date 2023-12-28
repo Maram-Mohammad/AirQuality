@@ -1,6 +1,5 @@
 const cron = require('node-cron');
 import { AirQualityService } from './airQualityService';
-// import {logger} from '../../../shared/utils/logger';
 
 export class AirQualityCronJob {
   constructor(private readonly airQualityService: AirQualityService) {}
