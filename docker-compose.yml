@@ -4,14 +4,8 @@ services:
     image: mongo
     container_name: mongodb
     ports:
-      - "27017:27017"
-    # environment:
-    #   MONGO_INITDB_ROOT_USERNAME: user
-    #   MONGO_INITDB_ROOT_PASSWORD: pass
-    #   MONGO_INITDB_DATABASE: air_quality_db
+      - "27018:27017"
     environment:
-      # - MONGO_INITDB_ROOT_USERNAME=user
-      # - MONGO_INITDB_ROOT_PASSWORD=pass
       - MONGO_INITDB_DATABASE=air_quality_db
     volumes:
       - ./data/db:/opt/data/db
@@ -33,3 +27,14 @@ services:
   #   ports:
   #     - 8080:8080
  
+  app:
+    image: air_quality-app
+    build: .
+    ports:
+      - 5052:5052
+    environment:
+      DB_HOST: 'mongodb://mongo:27017/air_quality_db'
+      IQAIR_API_KEY: 45b05d0d-c3be-45a5-aced-44a72cd3ba24
+    depends_on:
+      - mongo
+
