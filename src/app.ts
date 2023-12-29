@@ -20,8 +20,6 @@ db.on('disconnected', () => {
 });
 
 
-// const PORT: Number = 5050;
 
-// app.listen(PORT, (): void => console.log(`running on port ${PORT}`));
 
 export default app;

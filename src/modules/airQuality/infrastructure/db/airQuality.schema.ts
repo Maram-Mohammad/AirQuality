@@ -2,7 +2,6 @@ import { Schema, SchemaTypes } from 'mongoose';
 
 export const airQualitySchema = new Schema(
     {
-      id: { type: String, required: false },
       city: { type: String, required: false },
       state: { type: String, required: false },
       country: { type: String, required: false },

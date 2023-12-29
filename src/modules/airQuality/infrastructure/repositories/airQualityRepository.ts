@@ -6,8 +6,8 @@ export class AirQualityRepository implements IAirQualityRepository  {
     return await airqualityModel.find().exec();
   }
 
-  async getById(id: string): Promise<IAirQuality | null> {
-    return await airqualityModel.findById(id).exec();
+  async getById(id: any): Promise<IAirQuality | null> {
+    return await airqualityModel.findOne({_id: id}).exec();
   }
 
   async create(entity: IAirQuality): Promise<IAirQuality> {

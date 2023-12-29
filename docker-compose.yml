@@ -14,7 +14,7 @@ services:
       # - MONGO_INITDB_ROOT_PASSWORD=pass
       - MONGO_INITDB_DATABASE=air_quality_db
     volumes:
-      - ./data/db:/data/db
+      - ./data/db:/opt/data/db
 
 
   # db:
