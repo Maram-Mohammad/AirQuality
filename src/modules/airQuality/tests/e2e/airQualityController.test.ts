@@ -1,8 +1,10 @@
 import request from "supertest";
 import app from '../../../../app';
+import { setupMongo, teardownMongo }from '../../../../mongo-server';
 
 describe('Air Qualiy CRUD Operations', () => {
 let apiUrl = `/airQuality`;
+let db: any;
   
   function getDummyData(){
     return{
@@ -14,12 +16,24 @@ let apiUrl = `/airQuality`;
       maincn: "p2",
     };
   };
-  // beforeAll(async () => {
-  //   await setupMongo();
-  // });
+
+  beforeAll(async () => {
+    console.log("BEFORE ALLLLLLLLLLLLLLLLLLL");
+
+    try{
+        db = setupMongo();
+        db.on('connected', () => {
+            console.log('MongoDB connected');
+        });
+    }catch(err:any){
+        console.error(`Error connecting to MongoDB: ${err}`);
+    }
+  });
   
       
   test('create new item', async () => {
+    console.log("Create NEw Item");
+
     const item = getDummyData();
     const response = await request(app).post(apiUrl).send(item)
     .set('Content-Type', 'application/json')
@@ -33,15 +47,22 @@ let apiUrl = `/airQuality`;
 
 
   test('retrieve item not found from db', async() => {
+    console.log("retrieve item not found from db");
+
     let itemId = "5fecb621b5e206e25c39c4cf";
     const response = await request(app).get(apiUrl.concat(`/${itemId}`));
     expect(response.status).toBe(404);
   });
 
 
-  // afterAll(async () => {
-  //   await teardownMongo();
-  // });
+  afterAll(async () => {
+    console.log("AFTER ALLLLLLL");
+    try{
+      teardownMongo(db);
+  }catch(err:any){
+      console.error(`Error connecting to MongoDB: ${err}`);
+  } 
+ });
  
 });
 
