@@ -65,6 +65,7 @@ to Implement API Documentation
 ### File Structure
 
 The project's file structure is organized as follows:
+
 ![Project Structue](https://github.com/Maram-Mohammad/AirQuality/blob/master/docs/ProjectStructure.png)
 
 
