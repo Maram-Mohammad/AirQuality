@@ -4,6 +4,7 @@
 
 This repository contains the source code for the Air Quality API, which provides information about air quality for different locations.
 
+# ---------------------------------------------------------------
 
 ### Installation Locally
 
@@ -26,18 +27,18 @@ The application will be accessible at http://localhost:5052.
 
     Open your web browser and access the application at http://localhost:5052.
 
-
-
-
 # ========================================
 
 ## Architecture
 
 The project follows a Domain-Driven Design (DDD) architecture, organized into modules with clear separation of concerns. The application is built with TypeScript and runs on Node.js.
 
-## API DOCS 
+
+## API DOCS --> OpenAPI doc : http://localhost:5052/docs/#/AirQuality/post_api_airQuality
 ## UML - CLASS DIGRAM 
 ## UML -  SEQUENCE DIGRAM  
+## Code Documentaion
+
 
 
 
@@ -49,32 +50,48 @@ The project's file structure is organized as follows:
 
 ├── src
 │   ├── app.ts
+│   ├── app.router.ts
 │   ├── index.ts
 │   ├── mongo-server.ts
-│   └── ...
+│   └── swagger.ts
+│   └── swagger_output.json
 │   └── modules
 │   |   ├── airQuality
 │   │       ├── application
-│   │   │       └── webApis
-│   │   │       └── webApis
+│   │   │       └── airQualityService.ts
+│   │   │       └── AirQualityJob.ts
 │   │       ├── domain
-│   │   │       └── webApis
-│   │   │       └── webApis
-│   │   │       └── webApis
+│   │   │       └── entities
+│   │   │               └── IAirQuality.ts
+│   │   │       └── repositories
+│   │   │               └── IAirQualityRepo.ts
+│   │   │       └── services
+│   │   │               └── AirQualityService.ts
 │   │       ├── infrastructure
+│   │   │       └── db
+│   │   │            └── AirQualitySchema.ts
+│   │   │            └── AirQualityDocument.ts
+│   │   │       └── repositories
+│   │   │            └── AirQualityRepo.ts
 │   │   │       └── webApis
-│   │   │       └── webApis
-│   │   │       └── webApis
-│   │       ├── tests
-│   │   │       └── webApis
-│   │   │       └── webApis
-│   │   │       └── webApis
+│   │   │            └── AirQualityController.ts
+│   │   │            └── AirQualityRouter.ts
+│   │       ├── __tests__
+│   │   │       └── e2e
+│   │   │       └── unitTesting
+│   │       ├── index.ts
+│   └── Shared
+│   |   ├── utils
+│   │       ├── errorhandlers.ts
 ├── .dockerignore
 ├── Dockerfile
 ├── docker-compose.yml
 ├── jest.config.js
 ├── package.json
-└── ...
+└── .env
+└── tsconfig
+└── readme.md
+
 
 
 
@@ -88,6 +105,9 @@ Make sure you have Node 16 and npm installed on your machine.
 
 
 ## Run Testing 
+
+
+## TO DO  
 
 
 
