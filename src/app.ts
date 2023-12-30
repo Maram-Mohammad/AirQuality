@@ -1,17 +1,15 @@
 import express, { Application, Request, Response, NextFunction } from "express";
-import airQualityRoutes from './modules/airQuality/infrastructure/webApis/airQualityRoutes';
-// import swaggerUi from 'swagger-ui-express';
-// import swaggerDocument from './swagger-output.json'; // Update this with the path to your generated Swagger JSON file
+import {routes} from './app.router';
+import swaggerUi from "swagger-ui-express";
+import swaggerOutput from "./swagger_output.json";
 
 
 
 const app: Application = express();
 app.use(express.json());
-app.use('/airQuality', airQualityRoutes);
 
-
-
-// app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use('/', routes);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerOutput));
 
 app.use("/", (req: Request, res: Response, next: NextFunction): void => {
   res.json({ message: "Allo! Catch-all route." });
