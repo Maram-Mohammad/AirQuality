@@ -68,49 +68,6 @@ The project's file structure is organized as follows:
 ![Project Structue](https://github.com/Maram-Mohammad/AirQuality/blob/master/docs/ProjectStructure.png)
 
 
-├── src
-│   ├── app.ts
-│   ├── app.router.ts
-│   ├── index.ts
-│   ├── mongo-server.ts
-│   └── swagger.ts
-│   └── swagger_output.json
-│   └── modules
-│   |   ├── airQuality
-│   │       ├── application
-│   │   │       └── airQualityService.ts
-│   │   │       └── AirQualityJob.ts
-│   │       ├── domain
-│   │   │       └── entities
-│   │   │               └── IAirQuality.ts
-│   │   │       └── repositories
-│   │   │               └── IAirQualityRepo.ts
-│   │   │       └── services
-│   │   │               └── AirQualityService.ts
-│   │       ├── infrastructure
-│   │   │       └── db
-│   │   │            └── AirQualitySchema.ts
-│   │   │            └── AirQualityDocument.ts
-│   │   │       └── repositories
-│   │   │            └── AirQualityRepo.ts
-│   │   │       └── webApis
-│   │   │            └── AirQualityController.ts
-│   │   │            └── AirQualityRouter.ts
-│   │       ├── __tests__
-│   │   │       └── e2e
-│   │   │       └── unitTesting
-│   │       ├── index.ts
-│   └── Shared
-│   |   ├── utils
-│   │       ├── errorhandlers.ts
-├── .dockerignore
-├── Dockerfile
-├── docker-compose.yml
-├── jest.config.js
-├── package.json
-└── .env
-└── tsconfig
-└── readme.md
 
 ---
 
