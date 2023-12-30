@@ -22,8 +22,9 @@ const doc = {
         }
     }
 };
-const routersPath = path.resolve(__dirname, './app.router.js');
+// const routersPath = path.resolve(__dirname, './app.router.js');
+// console.log("routersPath>>>>>>>", routersPath);
 const outputFile = './swagger_output.json';
-const endpointsFiles = [routersPath];
+const endpointsFiles = ['./src/app.router.ts'];
 
 swaggerAutogen({openapi: '3.0.0'})(outputFile, endpointsFiles, doc);
