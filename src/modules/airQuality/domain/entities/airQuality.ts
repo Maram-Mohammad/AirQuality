@@ -41,6 +41,14 @@ export interface IAirQuality{
     // current: Current;
     // history: History;
 }
+export interface FilterQuery{
+    searchTerm?: string, 
+    searchValue?: string,
+    sort?: number, // -1 
+    sortItem?: string,
+    limit?:number,
+    page?: number,
+}
 
 // interface Forecast extends Weather {
 //     aqius: number;

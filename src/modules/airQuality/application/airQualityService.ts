@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { IAirQualityRepository, IAirQuality } from '../domain';
+import { IAirQualityRepository, IAirQuality, FilterQuery } from '../domain';
 const appConfig = require('../../../config/app.config');
 
 export class AirQualityService {
@@ -44,11 +44,42 @@ export class AirQualityService {
         return false;
     }
   }
-  async getMostPollutedTime(){
+  async getMostPollutedTime2(){
     try {
         let pollutionData = await this.airQualityRepository.getAll();
         if (!pollutionData || pollutionData.length === 0) {
           return null; // Return null for empty data
+        }
+      
+        let maxAqius = -1;
+        let mostPollutedTime: any;
+      
+        pollutionData.forEach((item:IAirQuality) => {
+        
+          if (item && item.pollution && item.pollution.aqius > maxAqius) {
+            maxAqius = item.pollution.aqius;
+            mostPollutedTime = item.pollution.ts;
+          }
+        });
+      
+       return mostPollutedTime; 
+      } catch (error) {
+          console.error(error);
+      }
+  }
+
+  async getMostPollutedTime(){
+    try {
+        let filter: FilterQuery = {
+          searchTerm:'pollution.aqius', 
+          sortItem: 'pollution.aqius',
+          sort: -1,
+          limit: 1
+        };
+
+        let pollutionData = await this.airQualityRepository.getByFilter(filter);
+        if (!pollutionData || pollutionData.length === 0) {
+          return null; 
         }
       
         let maxAqius = -1;
