@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { IAirQualityRepository, IAirQuality, FilterQuery } from '../domain';
-const appConfig = require('../../../config/app.config');
+import { AirVisualService } from '../infrastructure';
 
 export class AirQualityService {
     airQualityRepository:IAirQualityRepository;
@@ -12,8 +12,7 @@ export class AirQualityService {
 
   async getNearestCityAirQuality(lat: number, lon: number) {
     try {
-        const apiUrl = `http://api.airvisual.com/v2/nearest_city?lat=${lat}&lon=${lon}&key=${appConfig.IQAIR_API_KEY}`;
-        const response = await axios.get(apiUrl);
+        const response: any = await AirVisualService.getAirnearstCityData(lat, lon);
         const { data } = response.data;
         const formattedResponse = {
             Result: {

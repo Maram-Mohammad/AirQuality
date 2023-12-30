@@ -1,5 +1,5 @@
 import { IAirQualityRepository, IAirQuality, FilterQuery } from '../../domain';
-import {airqualityModel } from "../db/airQuality"
+import {airqualityModel } from "../db/airQualityDoc"
 export class AirQualityRepository implements IAirQualityRepository  {
   
   async getByFilter(filter: FilterQuery): Promise<IAirQuality []| null> {

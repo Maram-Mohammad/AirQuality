@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import {airQualityService, airQualityRep} from "../../index";
+import {airQualityService, airQualityRep} from "../index";
 
 export const AirQualityController = {
     getAll: async (req: Request, res: Response): Promise<void> => {

@@ -4,7 +4,7 @@ import { AirQualityService } from './airQualityService';
 export class AirQualityCronJob {
   constructor(private readonly airQualityService: AirQualityService) {}
 
-  start(): void {
+  startGetNearestCityPollution(): void {
     console.log("Emit start JB....");
     cron.schedule('* * * * *', async () => {
       try {        

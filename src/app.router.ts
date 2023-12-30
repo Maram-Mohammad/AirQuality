@@ -1,5 +1,5 @@
 import express from 'express';
-import {airQualityRouter} from './modules/airQuality/infrastructure/webApis/airQualityRoutes';
+import {airQualityRouter} from './modules/airQuality/webApis/airQualityRoutes';
 
 export const routes = express.Router();
 

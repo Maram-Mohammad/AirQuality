@@ -17,7 +17,7 @@ export class AirQualityService {
     return info;
   }
 
-  async getUserById(id: string): Promise<IAirQuality | null> {
+  async geItemById(id: string): Promise<IAirQuality | null> {
     return this.airQualityRepository.getById(id);
   }
 }
