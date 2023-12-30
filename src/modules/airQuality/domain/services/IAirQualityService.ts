@@ -11,7 +11,7 @@ import { IAirQualityRepository } from '../repositories/airQualityRepo';
 export class AirQualityService {
   constructor(private airQualityRepository: IAirQualityRepository) {}
 
-  async createUser(qualityData: IAirQuality): Promise<IAirQuality> {
+  async create(qualityData: IAirQuality): Promise<IAirQuality> {
     // const user: IAirQuality = { id: 'generated-id', username, email };
     let info = await this.airQualityRepository.create(qualityData);
     return info;
