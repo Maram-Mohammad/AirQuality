@@ -4,25 +4,31 @@
 
 This repository contains the source code for the Air Quality API, which provides information about air quality for different locations.
 
-# ---------------------------------------------------------------
 
-### Installation Locally
-### Prerequisites
-
+## Installation
+### Locally
+#### Prerequisites
 > Make sure you have Node 16 and npm installed on your machine.
 
 To run the application locally, use the following command:
 1. Install dependencies:
-    npm install 
+  ```bash
+npm install 
+```
+
 2. Compile and build Code 
+  ```bash
     npm run compile
+```
 3. Run The App 
+  ```bash
     npm start
+```
 
-The application will be accessible at http://localhost:5052.
+> The application will be accessible at http://localhost:5052.
+---
 
-
-#### Running with Docker 
+### Running with Docker 
 
     docker-compose up
 
@@ -30,41 +36,36 @@ The application will be accessible at http://localhost:5052.
 
     Open your web browser and access the application at http://localhost:5052.
 
-# ========================================
-
+---
 ## Architecture
 
 The project follows a Domain-Driven Design (DDD) architecture, organized into modules with clear separation of concerns. The application is built with TypeScript and runs on Node.js.
  
-Technoclogies : 
+#### Technoclogies : 
 
-Mongo DB : 
-Data is unstructural 
-no Need for Releationship 
-
-Jest : 
+1. Mongo DB : 
+Data is unstructural and no Need for Releationship 
+2. Jest : 
 to implemtn uinit/integration Testing 
-
-Swagger : 
+3. Swagger : 
 to Implement API Documentation 
 
+## Design Documents:
 
-https://github.com/Maram-Mohammad/AirQuality/blob/master/docs/airdocArchitecture%20Design%20.jpg
+#### ![Architecture Design](https://github.com/Maram-Mohammad/AirQuality/blob/master/docs/airdocArchitectureDesign.jpg) 
+#### API DOCS: ![OpenAPI doc](https://github.com/Maram-Mohammad/AirQuality/assets/10803528/b5333e01-5830-4956-a0a6-e84efd4286e2)
+> run Project and go to this link: 
+[link](http://localhost:5052/docs/#/AirQuality/post_api_airQuality)
 
-## API DOCS --> OpenAPI doc : http://localhost:5052/docs/#/AirQuality/post_api_airQuality
-## UML - CLASS DIGRAM 
-https://github.com/Maram-Mohammad/AirQuality/blob/master/docs/diagream.jpg
+#### ![CLASS DIAGRAM](https://github.com/Maram-Mohammad/AirQuality/blob/master/docs/diagream.jpg)
+#### ![SEQUENCE DIGRAM](https://github.com/Maram-Mohammad/AirQuality/blob/master/docs/seq1.png)
 
-## UML -  SEQUENCE DIGRAM  
-https://github.com/Maram-Mohammad/AirQuality/blob/master/docs/seq1.png
-
-
-
+---
 
 ### File Structure
 
 The project's file structure is organized as follows:
-https://github.com/Maram-Mohammad/AirQuality/blob/master/docs/ProjectStructure.png
+![Project Structue](https://github.com/Maram-Mohammad/AirQuality/blob/master/docs/ProjectStructure.png)
 
 
 ├── src
@@ -111,6 +112,7 @@ https://github.com/Maram-Mohammad/AirQuality/blob/master/docs/ProjectStructure.p
 └── tsconfig
 └── readme.md
 
+---
 
 ## CI/CD
 I am using Github Actions To Run Automation Tasks on Pushing To Master Branch to Track Code Quality 
@@ -131,7 +133,6 @@ Make Sure You are using Node 16
 2. Enhance Automation Tasks in CI/ CD 
 3. Implement Monitoring System (Prometheus)
 4. Handle Errors 
-5. 
 
 
 
