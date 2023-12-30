@@ -9,6 +9,16 @@ jobs:
   Test_Build:
     runs-on: ubuntu-latest
 
+    services:
+        mongodb:
+          image: mongo
+          ports:
+            - 27017:27017
+          env:
+            MONGO_INITDB_DATABASE: air_quality_db_test       
+          options: >-
+            --health-cmd "mongo --eval printjson(db.stats())" --health-interval 10s --health-timeout 5s --health-retries 5
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
