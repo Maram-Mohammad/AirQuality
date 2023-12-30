@@ -44,18 +44,20 @@ The project follows a Domain-Driven Design (DDD) architecture, organized into mo
 #### Technoclogies : 
 
 1. Mongo DB : 
-Data is unstructural and no Need for Releationship 
+Data is unstructured and no Need for Relationship 
 2. Jest : 
-to implemtn uinit/integration Testing 
+to implement unit/integration Testing 
 3. Swagger : 
-to Implement API Documentation 
+to Implement API Documentation - Auto Generate Swagger.json File to save Time while implementing any new APIs 
 
 ## Design Documents:
 
 #### ![Architecture Design](https://github.com/Maram-Mohammad/AirQuality/blob/master/docs/airdocArchitectureDesign.jpg) 
 #### API DOCS: ![OpenAPI doc](https://github.com/Maram-Mohammad/AirQuality/assets/10803528/b5333e01-5830-4956-a0a6-e84efd4286e2)
-> run Project and go to this link: 
+> run Project and go to this link : 
 [link](http://localhost:5052/docs/#/AirQuality/post_api_airQuality)
+> it is an Auto-generated Swagger Document Based On implemented Routes
+
 
 #### ![CLASS DIAGRAM](https://github.com/Maram-Mohammad/AirQuality/blob/master/docs/diagream.jpg)
 #### ![SEQUENCE DIGRAM](https://github.com/Maram-Mohammad/AirQuality/blob/master/docs/seq1.png)
@@ -90,7 +92,10 @@ Make Sure You are using Node 16
 1. implement more Test Cases to increase the Coverage 
 2. Enhance Automation Tasks in CI/ CD 
 3. Implement Monitoring System (Prometheus)
-4. Handle Errors 
+4. Handle Errors
+5. Auto Generate Schema on Swagger As I did for APIs
+6. Security on APP and APIs Like Implementing JWT Token
+7. Validation on Param's and inputs
 
 
 
