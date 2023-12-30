@@ -3,8 +3,8 @@ WORKDIR /usr/src/app
 ENV CI 1
 RUN apt update && apt install rsync -y
 
-COPY package*.json ./
-RUN npm ci
+COPY package.json ./
+RUN npm install
 COPY . .
 RUN npm run compile
 # ENV DEBUG *,-not_this,-express:*,-body-parser:*
